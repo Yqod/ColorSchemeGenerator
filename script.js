@@ -23,18 +23,46 @@ const colorArray = []
     let html = "";
     for (let color of colorArray) {
         html += `
-            <div class="color-box" style="background-color: ${color};"></div>
+            <div class="color-box" style="background-color: ${color};" onclick="copyToClipboard('${color}')">
+            <h2>${color}</h2>
+            </div>
             <hr />
         `;
     }
     document.getElementById("colorSchemeContainer").innerHTML = html;
     }
+    function copyToClipboard(color) {
+        navigator.clipboard.writeText(color).then(() => {
+            alert(`Copied ${color} to clipboard!`);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
 
-async function buttonClick() {
-    await getDataAPI();
-    renderPosts();
+
+    function setLoading(isLoading) {
+    const button = document.getElementById("generateButton");
     
-
+    if (isLoading) {
+        button.textContent = "Generating...";
+        button.disabled = true;
+        button.classList.add("loading");
+    } else {
+        button.textContent = "Generate Color Scheme";
+        button.disabled = false;
+        button.classList.remove("loading");
+    }
+}
+   async function buttonClick() {
+    try {
+        setLoading(true); 
+        await getDataAPI();
+        renderPosts();
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        setLoading(false);
+    }
 }
 
 
