@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Scheme Generator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <label for="colorInput">Choose a color:</label>
+        <input type="color" id="colorInput" name="colorInput" value="#ff0000">
+
+        <select id="colorSchemeSelect">
+            <option value="monochrome">Monochromatic</option>
+            <option value="monochrome-dark">Monochrome Dark</option>
+            <option value="monochrome-light">Monochromatic Light</option>
+            <option value="analogic">Analogic</option>
+            <option value="complement">Complement</option>
+            <option value="analogic-complement">Analogic Complement</option>
+            <option value="triad">Triad</option>
+            <option value="quad">Quad</option>
+        </select>
+
+        <button id="generateButton" onClick="buttonClick()">Generate Color Scheme</button>
+    </header>
+    <main>
+        <div id="colorSchemeContainer">
+            <!-- Color scheme will be displayed here -->
+        </div>
+    
+    
+    <footer>
+        <p>&copy; 2023 Color Scheme Generator</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
