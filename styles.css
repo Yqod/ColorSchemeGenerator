@@ -130,12 +130,12 @@ footer {
     header {
         flex-direction: column;
         text-align: center;
-        margin: 0.5rem;
+        margin: 
         padding: 1rem;
     }
     
     main {
-        top: 200px; 
+        top: 310px; 
         height: calc(100vh - 200px);
     }
     
